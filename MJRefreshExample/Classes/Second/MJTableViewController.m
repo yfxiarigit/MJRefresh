@@ -21,6 +21,9 @@
 #import "MJDIYAutoFooter.h"
 #import "MJDIYBackFooter.h"
 
+// yf 自定义的header
+#import "MJCustomHeader.h"
+
 static const CGFloat MJDuration = 2.0;
 /**
  * 随机数据
@@ -127,6 +130,13 @@ static const CGFloat MJDuration = 2.0;
 {
     // 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadNewData方法）
     self.tableView.mj_header = [MJDIYHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+    [self.tableView.mj_header beginRefreshing];
+}
+
+- (void)example07
+{
+    // 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadNewData方法）
+    self.tableView.mj_header = [MJCustomHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
     [self.tableView.mj_header beginRefreshing];
 }
 
